@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trail Explorer | Idaho Hiking Trails</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<script type="module" src="js/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__bar">
+      <span class="site-title">Trail Explorer</span>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+        <span>Menu</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav class="site-nav" id="mainNav">
+      <a href="#" class="site-nav__link" data-view="form">Form</a>
+      <a href="#" class="site-nav__link site-nav__link--active" data-view="trails">Trails</a>
+      <a href="#" class="site-nav__link" data-view="map">Map</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Favorites strip -->
+    <section class="favorites is-hidden" aria-labelledby="favoritesLabel">
+      <p class="section-label" id="favoritesLabel">Favorite list</p>
+      <div class="favorites__list" id="favorites-list"></div>
+    </section>
+
+    <!-- Trails view -->
+    <div id="trails-view">
+
+      <section class="current-trail">
+        <div class="current-trail__header">
+          <p class="section-label">Current trail</p>
+          <button class="btn btn--ghost" id="choose-trail-btn" type="button">Browse trails</button>
+        </div>
+        <select class="trail-select is-hidden" id="choose-trail-select"></select>
+        <h1 class="current-trail__name" id="current-trail-name">Loading...</h1>
+
+        <div class="current-trail__layout">
+          <img class="current-trail__image" id="current-trail-image" src="" alt="Trail image">
+          <div class="current-trail__details">
+            <p class="current-trail__desc" id="current-trail-desc"></p>
+            <a class="current-trail__link" id="current-trail-link" href="#" target="_blank" rel="noopener">View on Forest Service</a>
+            <div class="current-trail__actions">
+              <button class="btn btn--primary" id="planHikeBtn" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0112 6.4 5.4 5.4 0 0121.3 12c-2.3 4.4-9.3 9-9.3 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                Plan your hike
+              </button>
+              <button class="btn btn--outline" id="saveTrailBtn" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                Save trail
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trail-info" aria-labelledby="trailInfoLabel">
+        <p class="section-label" id="trailInfoLabel">Trail info</p>
+        <div class="trail-info__grid">
+          <div class="info-card">
+            <p class="info-card__label">Distance</p>
+            <p class="info-card__value" id="info-distance">—</p>
+          </div>
+          <div class="info-card">
+            <p class="info-card__label">Elevation gain</p>
+            <p class="info-card__value" id="info-elevation">—</p>
+          </div>
+          <div class="info-card">
+            <p class="info-card__label">Difficulty</p>
+            <p class="info-card__value" id="info-difficulty">—</p>
+          </div>
+          <div class="info-card">
+            <p class="info-card__label">Surface</p>
+            <p class="info-card__value" id="info-surface">—</p>
+          </div>
+          <div class="info-card">
+            <p class="info-card__label">Area</p>
+            <p class="info-card__value" id="info-area">—</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Map view -->
+    <div id="map-view" class="is-hidden">
+      <section class="map-section" aria-labelledby="mapLabel">
+        <p class="section-label" id="mapLabel">Map</p>
+        <iframe
+          id="map-frame"
+          class="map-frame"
+          title="Trail location map"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="">
+        </iframe>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Idaho Trail Explorer</span>
+  </footer>
+
+  <!-- Plan Your Hike Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modalTitle">Plan your hike</h2>
+        <button class="modal__close" id="modalClose" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <p class="modal__subtitle">We'll send the trail details to your email.</p>
+
+      <form id="planHikeForm" novalidate>
+        <div class="field">
+          <label for="hikerName">Name</label>
+          <input type="text" id="hikerName" name="hikerName" placeholder="Jane Doe" required>
+        </div>
+
+        <div class="field">
+          <label for="hikerEmail">Email</label>
+          <input type="email" id="hikerEmail" name="hikerEmail" placeholder="jane@email.com" required>
+        </div>
+
+        <div class="field">
+          <label for="hikerTrail">Selected trail</label>
+          <select id="hikerTrail" name="hikerTrail" required>
+            <option value="">Choose a trail</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="hikerNotes">Notes <span class="field__optional">(optional)</span></label>
+          <textarea id="hikerNotes" name="hikerNotes" rows="3" placeholder="Hiking with a group of four"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

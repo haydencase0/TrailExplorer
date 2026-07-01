@@ -1,0 +1,124 @@
+{
+  "trails": [
+    {
+      "id": "city-creek-trail",
+      "name": "City Creek Trail",
+      "area": "Pocatello, ID",
+      "forest": "City Creek Management Area",
+      "distance_miles": 4.0,
+      "difficulty": "Easy to Moderate",
+      "elevation_gain_ft": null,
+      "surface": "Dirt, singletrack",
+      "description": "A favored urban escape that winds through the heart of Pocatello alongside City Creek, passing through forested paths, rocky outcrops, and riparian zones popular for birdwatching.",
+      "link": "https://idahohighcountry.org/cat/hiking/"
+    },
+    {
+      "id": "gibson-jack-trail",
+      "name": "Gibson Jack Trail",
+      "area": "Pocatello, ID",
+      "forest": "Caribou-Targhee National Forest",
+      "distance_miles": 6.0,
+      "difficulty": "Moderate",
+      "elevation_gain_ft": null,
+      "surface": "Dirt, singletrack",
+      "description": "Part of the larger West Bench Trail System near Pocatello, offering a mix of scenic beauty and multiple route options for hikers of varying experience.",
+      "link": "https://www.fs.usda.gov/ctnf"
+    },
+    {
+      "id": "mink-creek-trail",
+      "name": "Mink Creek Trail",
+      "area": "Pocatello, ID",
+      "forest": "Caribou-Targhee National Forest",
+      "distance_miles": 5.0,
+      "difficulty": "Moderate",
+      "elevation_gain_ft": null,
+      "surface": "Dirt, forested singletrack",
+      "description": "A tranquil hike through dense forest alongside Mink Creek, with spots to cool off in the water and a peaceful, shaded atmosphere south of Pocatello.",
+      "link": "https://www.fs.usda.gov/ctnf"
+    },
+    {
+      "id": "scout-mountain-trail",
+      "name": "Scout Mountain Trail",
+      "area": "Pocatello, ID",
+      "forest": "Caribou-Targhee National Forest",
+      "distance_miles": 5.5,
+      "difficulty": "Challenging",
+      "elevation_gain_ft": null,
+      "surface": "Dirt, rocky sections",
+      "description": "A steep climb within the Bannock Mountain Range rewarded with panoramic summit views and, in spring and summer, hillsides lined with wildflowers.",
+      "link": "https://www.fs.usda.gov/ctnf"
+    },
+    {
+      "id": "bannock-peak-trail",
+      "name": "Bannock Peak Trail",
+      "area": "Pocatello, ID",
+      "forest": "Caribou-Targhee National Forest",
+      "distance_miles": 6.0,
+      "difficulty": "Challenging",
+      "elevation_gain_ft": null,
+      "surface": "Dirt, alpine terrain",
+      "description": "A remote, less-crowded climb through dense pine forest leading to sweeping alpine views, with moose and mountain goats occasionally spotted in the surrounding meadows.",
+      "link": "https://www.fs.usda.gov/ctnf"
+    },
+    {
+      "id": "mount-moh-trail",
+      "name": "Mount Moh Trail",
+      "area": "Lava Hot Springs, ID",
+      "forest": "Caribou-Targhee National Forest",
+      "distance_miles": 2.0,
+      "difficulty": "Moderate",
+      "elevation_gain_ft": 1167,
+      "surface": "Dirt, rocky terrain",
+      "description": "A short but rewarding climb near Lava Hot Springs through aspen groves and wildflower-filled hillsides, ending in panoramic valley and mountain views.",
+      "link": "https://visitidaho.org/travel-tips/hiking-trails-to-explore-in-southeast-idaho/"
+    },
+    {
+      "id": "black-canyon-trail",
+      "name": "Black Canyon Trail",
+      "area": "Ririe, ID",
+      "forest": "Caribou-Targhee National Forest",
+      "distance_miles": 12.6,
+      "difficulty": "Challenging",
+      "elevation_gain_ft": null,
+      "surface": "Dirt, multi-use",
+      "description": "A long, challenging trail near Ririe well suited to a full day of hiking, with options for horseback riding and off-roading along the way.",
+      "link": "https://www.idahofallsmagazine.com/2023/04/10-musttry-trails-in-and"
+    },
+    {
+      "id": "upper-palisades-lake-trail",
+      "name": "Upper Palisades Lake Trail",
+      "area": "Swan Valley, ID",
+      "forest": "Caribou-Targhee National Forest",
+      "distance_miles": 14.0,
+      "difficulty": "Challenging",
+      "elevation_gain_ft": null,
+      "surface": "Dirt",
+      "description": "A scenic backpacking and day-hiking trail leading to Upper Palisades Lake, popular for camping and fishing along the way.",
+      "link": "https://www.idahofallsmagazine.com/2023/04/10-musttry-trails-in-and"
+    },
+    {
+      "id": "craters-of-the-moon-trails",
+      "name": "Craters of the Moon Trails",
+      "area": "Arco, ID",
+      "forest": "Craters of the Moon National Monument & Preserve",
+      "distance_miles": 3.5,
+      "difficulty": "Easy to Moderate",
+      "elevation_gain_ft": null,
+      "surface": "Volcanic rock, cinder",
+      "description": "A network of trails winding through a unique volcanic landscape of lava fields and cinder cones, offering an otherworldly hiking experience.",
+      "link": "https://www.nps.gov/crmo/"
+    },
+    {
+      "id": "bell-marsh-creek-trail",
+      "name": "Bell Marsh Creek Trail",
+      "area": "Pocatello, ID",
+      "forest": "Caribou-Targhee National Forest",
+      "distance_miles": 3.7,
+      "difficulty": "Moderate",
+      "elevation_gain_ft": null,
+      "surface": "Dirt, creekside",
+      "description": "A scenic one-way trail following Bell Marsh Creek, often ranked among the top hikes near Pocatello for its varied terrain and creekside views.",
+      "link": "https://www.gaiagps.com/hike/city/united-states/idaho/pocatello/"
+    }
+  ]
+}
