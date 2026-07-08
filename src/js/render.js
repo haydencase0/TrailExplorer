@@ -109,7 +109,6 @@ export function renderFavoriteChips(trails, onChipClick) {
 export function renderTrailSelectorUI(trails, currentTrailId, onTrailSelected) {
   const btn = document.getElementById("choose-trail-btn");
   const select = document.getElementById("choose-trail-select");
-  if (!btn || !select) return;
 
   select.innerHTML = `
     <option value="">Select a trail...</option>
@@ -121,17 +120,10 @@ export function renderTrailSelectorUI(trails, currentTrailId, onTrailSelected) {
       .join("")}
   `;
 
-  btn.addEventListener("click", () => {
-    select.classList.toggle("is-hidden");
-    btn.textContent = select.classList.contains("is-hidden") ? "Browse trails" : "Close";
-  });
-
   select.addEventListener("change", () => {
     const trail = trails.find((t) => t.id === select.value);
     if (trail) {
       onTrailSelected(trail);
-      select.classList.add("is-hidden");
-      btn.textContent = "Browse trails";
     }
   });
 }

@@ -21,7 +21,7 @@
       </button>
     </div>
     <nav class="site-nav" id="mainNav">
-      <a href="#" class="site-nav__link" data-view="form">Form</a>
+      <a href="#" class="site-nav__link" data-view="form">Plan Hike</a>
       <a href="#" class="site-nav__link site-nav__link--active" data-view="trails">Trails</a>
       <a href="#" class="site-nav__link" data-view="map">Map</a>
     </nav>
@@ -41,9 +41,8 @@
       <section class="current-trail">
         <div class="current-trail__header">
           <p class="section-label">Current trail</p>
-          <button class="btn btn--ghost" id="choose-trail-btn" type="button">Browse trails</button>
         </div>
-        <select class="trail-select is-hidden" id="choose-trail-select"></select>
+        <select class="trail-select" id="choose-trail-select"></select>
         <h1 class="current-trail__name" id="current-trail-name">Loading...</h1>
 
         <div class="current-trail__layout">
@@ -129,12 +128,12 @@
       <form id="planHikeForm" novalidate>
         <div class="field">
           <label for="hikerName">Name</label>
-          <input type="text" id="hikerName" name="hikerName" placeholder="Jane Doe" required>
+          <input type="text" id="hikerName" name="hikerName" placeholder="John Doe" required>
         </div>
 
         <div class="field">
           <label for="hikerEmail">Email</label>
-          <input type="email" id="hikerEmail" name="hikerEmail" placeholder="jane@email.com" required>
+          <input type="email" id="hikerEmail" name="hikerEmail" placeholder="john_doe@email.com" required>
         </div>
 
         <div class="field">
@@ -148,7 +147,7 @@
           <label for="hikerNotes">Notes <span class="field__optional">(optional)</span></label>
           <textarea id="hikerNotes" name="hikerNotes" rows="3" placeholder="Hiking with a group of four"></textarea>
         </div>
-
+        <span id="errorMessage" style="color: red;"></span>
         <button type="submit" class="btn btn--primary btn--block">Submit</button>
       </form>
     </div>

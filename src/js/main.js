@@ -94,17 +94,31 @@ function initModal() {
   });
 
   document.getElementById("planHikeForm")?.addEventListener("submit", (e) => {
+    const name = document.getElementById("hikerName").value
+    const email = document.getElementById("hikerEmail")
+    const errorContainer = document.getElementById('errorMessage');
+    const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target));
-    console.log("Hike planned:", data);
-    // Save the selected trail to favorites when the form is submitted
-    const submittedTrail = allTrails.find((t) => t.id === data.hikerTrail);
-    if (submittedTrail) {
-      addFavorite({ id: submittedTrail.id, name: submittedTrail.name });
-      renderFavoriteChips(allTrails, setActiveTrail);
+    try{
+      if(!nameRegex.test(name)){
+        throw new Error('Invalid Name');
+      }
+      if(!email.checkValidity()){
+        throw new Error('Invalid Email');
+      }
+      const data = Object.fromEntries(new FormData(e.target));
+      console.log("Hike planned:", data);
+      // Save the selected trail to favorites when the form is submitted
+      const submittedTrail = allTrails.find((t) => t.id === data.hikerTrail);
+      if (submittedTrail) {
+        addFavorite({ id: submittedTrail.id, name: submittedTrail.name });
+        renderFavoriteChips(allTrails, setActiveTrail);
+      }
+      closeModal();
+      e.target.reset();
+    } catch (error){
+      errorContainer.textContent = error.message;
     }
-    closeModal();
-    e.target.reset();
   });
 }
 
