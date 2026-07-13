@@ -66,7 +66,11 @@ function initNavTabs() {
 }
 
 // Modal
+let active = null;
+const outside = document.querySelectorAll("main, header");
+
 function openModal() {
+  active = document.activeElement;
   const overlay = document.getElementById("modalOverlay");
   if (!overlay) return;
   overlay.classList.add("is-open");
@@ -75,13 +79,21 @@ function openModal() {
     if (select) select.value = activeTrail.id;
   }
   document.getElementById("hikerName")?.focus();
+  outside.forEach((element) => {
+    element.setAttribute("inert", "");
+  })
 }
 
 function closeModal() {
   document.getElementById("modalOverlay")?.classList.remove("is-open");
+  if(active) active.focus();
+  outside.forEach((element) => {
+    element.removeAttribute("inert");
+  })
 }
 
 function initModal() {
+  const modal = document.getElementById("modalOverlay")
   document.getElementById("planHikeBtn")?.addEventListener("click", openModal);
   document.getElementById("modalClose")?.addEventListener("click", closeModal);
 
@@ -91,11 +103,26 @@ function initModal() {
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
+    if (modal.classList.contains("is-open")){
+      const input = modal.querySelectorAll("input, button, select, textarea")
+      if (e.key === "Tab"){
+        const firstElement = input[0];
+        const lastElement = input[input.length-1]
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault()
+          lastElement.focus()
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault()
+          firstElement.focus()
+        }
+      }
+    }
   });
 
   document.getElementById("planHikeForm")?.addEventListener("submit", (e) => {
     const name = document.getElementById("hikerName").value
     const email = document.getElementById("hikerEmail")
+    const trail = document.getElementById("hikerTrail")
     const errorContainer = document.getElementById('errorMessage');
     const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
     e.preventDefault();
@@ -105,6 +132,9 @@ function initModal() {
       }
       if(!email.checkValidity()){
         throw new Error('Invalid Email');
+      }
+      if(!trail.checkValidity()){
+        throw new Error('Invalid Hike');
       }
       const data = Object.fromEntries(new FormData(e.target));
       console.log("Hike planned:", data);

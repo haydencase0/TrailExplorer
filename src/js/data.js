@@ -9,6 +9,7 @@ export async function fetchTrailsData() {
   return Array.isArray(data?.trails) ? data.trails : [];
 }
 
+// For future use if want to connect to full API - Currently does nothing
 export async function fetchUSFSTrails() {
   const params = new URLSearchParams({
     geometry: "-113.0,42.0,-111.0,44.0",
