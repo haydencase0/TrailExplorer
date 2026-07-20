@@ -147,7 +147,7 @@ export function renderMapEmbed(trail) {
   const iframe = document.getElementById("map-frame");
   if (!iframe || !trail) return;
   const query = encodeURIComponent(`${trail.name} ${trail.area} Idaho`);
-  iframe.src = `https://www.google.com/maps/search/?api=1&query=${query}&output=embed`;
+  iframe.src = `https://www.openstreetmap.org/export/embed.html?bbox=${trail.lng-0.2}%2C${trail.lat-0.2}%2C${trail.lng+0.2}%2C${trail.lat+0.2}&layer=mapnik`;
 }
 
 export function setActiveView(view) {
